@@ -1,0 +1,51 @@
+package com.kimeeo.kAndroid.aQueryDataProvider;
+
+import android.content.Context;
+
+import com.kimeeo.kAndroid.core.utils.NetworkUtilities;
+
+import java.util.List;
+
+/**
+ * Created by BhavinPadhiyar on 02/05/16.
+ */
+abstract public class JSONFallbackOfflineDataProvider extends JSONDataProvider {
+    public boolean isConnected() {
+        return isConnected;
+    }
+    private boolean isConnected=false;
+    private IOfflineListProvider offlineListProvider;
+
+    public JSONFallbackOfflineDataProvider(Context context,IOfflineListProvider offlineListProvider)
+    {
+        super(context);
+        this.isConnected = NetworkUtilities.isConnected(context);
+        this.offlineListProvider = offlineListProvider;
+    }
+    protected void invokeLoadNext()
+    {
+        if(isConnected)
+            super.invokeLoadNext();
+        else
+        {
+            listDataIn(offlineListProvider.getData(getNextURL(),getNextParam()));
+        }
+    }
+
+    protected void invokeloadRefresh()
+    {
+        if(isConnected)
+            super.invokeloadRefresh();
+        else
+        {
+            listDataIn(offlineListProvider.getData(getNextURL(), getNextParam()));
+        }
+    }
+
+    protected void listDataIn(List list) {
+        if(list!=null)
+            addData(list);
+        else
+            dataLoadError(null);
+    }
+}
