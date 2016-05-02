@@ -158,7 +158,7 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
             if (getMethod() == METHOD_GET)
                 invokeGetService(url);
             else if (getMethod() == METHOD_POST)
-                invokePostService(url,getNextParam());
+                invokePostService(url,getRefreshParam());
         }
         else {
             setCanLoadRefresh(false);
