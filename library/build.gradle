@@ -24,12 +24,19 @@ dependencies {
     testCompile 'junit:junit:4.12'
     final SUPPORT_LIBRARY_VERSION = '23.3.0'
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+
     //https://github.com/androidquery/androidquery
     compile 'com.github.androidquery:androidquery:0.26.9'
-    final KANDROID_LISTVIEW_VERSION = 'b415ee5349'
+
+    //
+    final KANDROID_LISTVIEW_VERSION = '021d3f9dd5'
     compile "com.github.kimeeo:KAndroid_ListView:$KANDROID_LISTVIEW_VERSION"
+
     //JSON Parser
     compile 'com.google.code.gson:gson:2.6.2'
+
+
+    //Multipart
     compile files('libs/apache-mime4j-0.6.jar')
     compile files('libs/httpmime-4.0.1.jar')
 }
