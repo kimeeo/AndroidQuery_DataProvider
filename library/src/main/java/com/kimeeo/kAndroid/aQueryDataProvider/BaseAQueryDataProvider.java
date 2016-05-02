@@ -108,7 +108,7 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
     }
     abstract protected void dataHandler(String url, Object json, AjaxStatus status);
 
-    protected void dataIn(String url, Object json)
+    protected void dataIn(String url, Object data)
     {
 
     }
