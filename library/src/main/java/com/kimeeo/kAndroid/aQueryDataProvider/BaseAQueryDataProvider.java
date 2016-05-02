@@ -8,8 +8,11 @@ import com.google.gson.Gson;
 import com.kimeeo.kAndroid.listViews.dataProvider.NetworkDataProvider;
 
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.StringEntity;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -143,7 +146,21 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
                 invokeGetService(url);
             }
             else if (getMethod() == METHOD_POST) {
-                invokePostService(url,getNextParam());
+                Object param = getNextParam();
+                if(param instanceof Map) {
+                    Map<String, Object> params = (Map<String, Object>) param;
+                    invokePostService(url, params);
+                }
+                else
+                {
+                    Map<String, Object> params = new HashMap<>();
+                    try {
+                        params.put(AQuery.POST_ENTITY, new StringEntity((String)param));
+                    } catch (UnsupportedEncodingException e) {
+                        dataLoadError(e);
+                    }
+                    invokePostService(url, params);
+                }
             }
         }
         else {
@@ -157,8 +174,23 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
         if(url!=null) {
             if (getMethod() == METHOD_GET)
                 invokeGetService(url);
-            else if (getMethod() == METHOD_POST)
-                invokePostService(url,getRefreshParam());
+            else if (getMethod() == METHOD_POST) {
+                Object param = getRefreshParam();
+                if(param instanceof Map) {
+                    Map<String, Object> params = (Map<String, Object>) param;
+                    invokePostService(url, params);
+                }
+                else
+                {
+                    Map<String, Object> params = new HashMap<>();
+                    try {
+                        params.put(AQuery.POST_ENTITY, new StringEntity((String)param));
+                    } catch (UnsupportedEncodingException e) {
+                        dataLoadError(e);
+                    }
+                    invokePostService(url, params);
+                }
+            }
         }
         else {
             setCanLoadRefresh(false);
