@@ -33,8 +33,8 @@ abstract public class JSONDataProvider extends BaseAQueryDataProvider
     {
         try
         {
-            Class<IListParser> clazz = getListParser();
-            IListParser listParser = gson.fromJson((String)json, clazz);
+            Class<ListParser> clazz = getListParser();
+            ListParser listParser = gson.fromJson((String)json, clazz);
             List<?> list=listParser.getDataProvider();
             if(list!=null) {
                 for (int i = 0; i < list.size(); i++) {
@@ -56,4 +56,6 @@ abstract public class JSONDataProvider extends BaseAQueryDataProvider
             dataLoadError(e);
         }
     }
+
+
 }
