@@ -9,6 +9,7 @@ import com.kimeeo.kAndroid.listViews.dataProvider.NetworkDataProvider;
 
 import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntity;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
@@ -151,6 +152,11 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
                     Map<String, Object> params = (Map<String, Object>) param;
                     invokePostService(url, params);
                 }
+                else if(param instanceof MultipartEntity) {
+                    Map<String, Object> params = new HashMap<>();
+                    params.put(AQuery.POST_ENTITY, param);
+                    invokePostService(url, params);
+                }
                 else
                 {
                     Map<String, Object> params = new HashMap<>();
@@ -178,6 +184,11 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
                 Object param = getRefreshParam();
                 if(param instanceof Map) {
                     Map<String, Object> params = (Map<String, Object>) param;
+                    invokePostService(url, params);
+                }
+                else if(param instanceof MultipartEntity) {
+                    Map<String, Object> params = new HashMap<>();
+                    params.put(AQuery.POST_ENTITY, param);
                     invokePostService(url, params);
                 }
                 else
