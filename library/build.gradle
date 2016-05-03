@@ -29,7 +29,7 @@ dependencies {
     compile 'com.github.androidquery:androidquery:0.26.9'
 
     //
-    final KANDROID_LISTVIEW_VERSION = 'd1e17cac80'
+    final KANDROID_LISTVIEW_VERSION = '-SNAPSHOT'
     compile "com.github.kimeeo:KAndroid_ListView:$KANDROID_LISTVIEW_VERSION"
 
     //JSON Parser
