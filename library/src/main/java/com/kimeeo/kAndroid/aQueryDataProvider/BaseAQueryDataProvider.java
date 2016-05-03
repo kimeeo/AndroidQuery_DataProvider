@@ -138,7 +138,7 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
         getaQuery().ajax(url, String.class,getCachingTime(), ajaxCallback);
     }
 
-
+    @Override
     protected void invokeLoadNext()
     {
         String url = getNextURL();
@@ -174,7 +174,8 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
             dataLoadError(null);
         }
     }
-    protected void invokeloadRefresh()
+    @Override
+    protected void invokeLoadRefresh()
     {
         String url = getRefreshURL();
         if(url!=null) {
