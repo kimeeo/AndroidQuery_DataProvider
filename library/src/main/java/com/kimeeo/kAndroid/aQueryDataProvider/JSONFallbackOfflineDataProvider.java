@@ -22,6 +22,7 @@ abstract public class JSONFallbackOfflineDataProvider extends JSONDataProvider {
         this.isConnected = NetworkUtilities.isConnected(context);
         this.offlineListProvider = offlineListProvider;
     }
+    @Override
     protected void invokeLoadNext()
     {
         if(isConnected)
@@ -30,10 +31,11 @@ abstract public class JSONFallbackOfflineDataProvider extends JSONDataProvider {
             listDataIn(offlineListProvider.getData(getNextURL(),getNextParam()));
     }
 
-    protected void invokeloadRefresh()
+    @Override
+    protected void invokeLoadRefresh()
     {
         if(isConnected)
-            super.invokeloadRefresh();
+            super.invokeLoadRefresh();
         else
             listDataIn(offlineListProvider.getData(getNextURL(), getRefreshParam()));
     }
