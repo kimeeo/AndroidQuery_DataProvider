@@ -35,6 +35,7 @@ abstract public class BaseAQueryDataProvider extends NetworkDataProvider
     }
 
 
+
     private Map<String,String> headers;
     public Map<String,String> getHeaders()
     {
