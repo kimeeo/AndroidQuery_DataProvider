@@ -32,11 +32,26 @@ public class ExtendedAjaxCallback<T> extends AjaxCallback<T> {
 
     Class clazz;
 
-    public static List<Cookie> getCookies() {
-        return null;
+    private static List<Cookie> cookies;
+    public static List<Cookie> getCookies()
+    {
+        return cookies;
+    }
+    public static void setCookies(List<Cookie> cookies)
+    {
+        ExtendedAjaxCallback.cookies=cookies;
     }
 
-    public static Map<String, String> getHeaders() {
-        return null;
+
+    private static Map<String, String> headers;
+    public static Map<String, String> getHeaders()
+    {
+        return headers;
     }
+    public static void setHeaders(Map<String, String> headers)
+    {
+        ExtendedAjaxCallback.headers=headers;
+    }
+
+
 }
