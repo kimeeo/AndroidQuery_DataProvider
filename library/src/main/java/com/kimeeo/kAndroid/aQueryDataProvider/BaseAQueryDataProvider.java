@@ -5,7 +5,7 @@ import android.content.Context;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.google.gson.Gson;
-import com.kimeeo.kAndroid.listViews.dataProvider.NetworkDataProvider;
+import com.kimeeo.kAndroid.dataProvider.NetworkDataProvider;
 
 import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.StringEntity;
