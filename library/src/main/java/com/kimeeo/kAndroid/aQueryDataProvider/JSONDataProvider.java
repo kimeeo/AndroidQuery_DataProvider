@@ -1,18 +1,12 @@
 package com.kimeeo.kAndroid.aQueryDataProvider;
 
 import android.content.Context;
-
-import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.google.gson.Gson;
 import com.kimeeo.kAndroid.dataProvider.DataModel;
 import com.kimeeo.kAndroid.dataProvider.IParseableObject;
-import com.kimeeo.kAndroid.dataProvider.NetworkDataProvider;
-
-import org.apache.http.cookie.Cookie;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by BhavinPadhiyar on 02/05/16.

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
-import com.google.gson.Gson;
 import com.kimeeo.kAndroid.dataProvider.NetworkDataProvider;
 
 import org.apache.http.cookie.Cookie;
@@ -12,7 +11,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntity;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
