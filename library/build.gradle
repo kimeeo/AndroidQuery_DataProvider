@@ -26,7 +26,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
 
 
-    final KANDROID_DATAPROVDER_VERSION = 'V3.1.0Beta'
+    final KANDROID_DATAPROVDER_VERSION = 'Ant-V1.0.0'
     compile "com.github.kimeeo:KAndroid_DataProvider:$KANDROID_DATAPROVDER_VERSION"
 
 
